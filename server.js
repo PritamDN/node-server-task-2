@@ -17,6 +17,22 @@ app.get('/about', (req, res) => {
    res.render('about.hbs');
 	});
 
+app.get('/portfolio', (req, res) => {
+   res.render('portfolio-home.hbs');
+	});
+
+app.get('/portfolio/frontend-team', (req, res) => {
+   res.render('frontend-team.hbs');
+	});
+
+app.get('/portfolio/backend-team', (req, res) => {
+   res.render('backend-team.hbs');
+	});
+
+app.get('/portfolio/graphics-team', (req, res) => {
+   res.render('graphics-team.hbs');
+	});
+
 app.listen(port, () => {
 	console.log(`Server is up on ${port}`);
 });
