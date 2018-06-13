@@ -13,24 +13,25 @@ app.get('/', (req, res) => {
    res.render('home.hbs');
 	});
 
-app.get('/about', (req, res) => {
+app.get('/about-us', (req, res) => {
    res.render('about.hbs');
 	});
 
-app.get('/portfolio', (req, res) => {
-   res.render('portfolio-home.hbs');
-	});
 
-app.get('/portfolio/frontend-team', (req, res) => {
+app.get('/frontend-team', (req, res) => {
    res.render('frontend-team.hbs');
 	});
 
-app.get('/portfolio/backend-team', (req, res) => {
+app.get('/backend-team', (req, res) => {
    res.render('backend-team.hbs');
 	});
 
-app.get('/portfolio/graphics-team', (req, res) => {
+app.get('/graphics-team', (req, res) => {
    res.render('graphics-team.hbs');
+	});
+
+app.get('/login', (req, res) => {
+   res.render('login.hbs');
 	});
 
 app.listen(port, () => {
