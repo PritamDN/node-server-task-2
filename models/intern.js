@@ -16,6 +16,11 @@ var Intern = mongoose.model('Intern', {
     trim: true,
     required: true
   },
+  bio : {
+    type: String,
+    trim: true,
+    default : null
+  },
   hobby : {
     type: String,
     trim: true,

@@ -24,7 +24,11 @@ app.post('/interns', (req, res) => {
     designation : req.body.designation,
     bio : req.body.bio,
     hobby : req.body.hobby,
-    imageUrl : req.body.imageUrl
+    imageUrl : req.body.imageUrl,
+    aim : req.body.aim,
+    facebookUrl : req.body.facebookUrl,
+    githubUrl : req.body.githubUrl,
+    instagramUrl : req.body.instagramUrl,
   });
 
   intern.save().then((doc) => {
