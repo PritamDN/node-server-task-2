@@ -11,15 +11,20 @@ var Intern = mongoose.model('Intern', {
     required: true,
     trim: true
   },
-  description : {
+  bio : {
     type: String,
     trim: true,
-    default: null
+    required: true
+  },
+  hobby : {
+    type: String,
+    trim: true,
+    required: true
   },
   imageUrl: {
     type: String,
     trim: true,
-    default: null
+    required: true
   },
   facebookUrl: {
     type: String,
