@@ -24,6 +24,31 @@
 }
 		}
 	</style>
+
+
+	<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+         crossorigin="anonymous">         	
+    </script>
+
+    <script type="text/javascript">
+  			function loginF(admin_id){
+  				if(admin_id.length != 0){
+  					$.ajax({
+  						url: '/admins/'+admin_id,
+  						async: false,
+  						success: function(response){
+  							
+  							alert('Name : ' + response["admin"]["email"] + '\nBio : ' + response["admin"]["password"]);
+  							//alert('Name : ' + response["intern"]["name"]);
+  							//document.write(response["intern"]["designation"]);
+  							//document.getElementById("ff").innerHTML = response["intern"]["name"];
+  						}
+  					});
+  				}
+  			}
+  	</script>
 </head>
 <body background="admin.jpeg">
 
@@ -31,6 +56,7 @@
 	
 
 	<div class="container">
+		<button onclick="loginF('5b2200bd49f8b8123e22ca4d')">Click Me</button>
 		<br><br>
 
 
@@ -75,7 +101,7 @@
 								
 								
 								<input type="submit" class="btn btn-success" value="Login">
-								<a href="#"
+								<a href="#">
 							</form>
 						</div>
 					</div>

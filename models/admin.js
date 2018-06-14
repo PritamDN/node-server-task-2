@@ -3,13 +3,18 @@ var mongoose = require('mongoose');
 var Admin = mongoose.model('Admin', {
   email: {
     type: String,
-    required: true,
-    trim: true
+    trim: true,
+    required: true
   },
   password: {
     type: String,
-    required: true,
-    trim: true
+    trim: true,
+    required: true
+  },
+  description : {
+    type: String,
+    trim: true,
+    default: null
   }
 });
 

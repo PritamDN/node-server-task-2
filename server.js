@@ -32,6 +32,21 @@ app.post('/interns', (req, res) => {
   console.log(req.body);
 });
 
+app.post('/admins', (req, res) => { 
+  var admin = new Admin({
+    email: req.body.email,
+    password : req.body.password
+  });
+
+  admin.save().then((doc) => {
+    res.send(doc);
+  }, (e) => {
+    res.status(400).send(e);
+  });
+  console.log(req.body);
+});
+
+
 //GET Route
 app.get('/interns', (req, res) => {
   Intern.find().then((interns) => {
@@ -39,6 +54,32 @@ app.get('/interns', (req, res) => {
   }, (e) => {
    res.status(400).send(e);
 });
+});
+
+app.get('/admins', (req, res) => {
+  Admin.find().then((admins) => {
+    res.send({admins});  
+  }, (e) => {
+   res.status(400).send(e);
+});
+});
+
+app.get('/admins/:id', (req, res) => {
+   var id = req.params.id;
+
+   if (!ObjectID.isValid(id)) {
+    return res.status(404).send('<h1>This Page Does not Exist.</h1>');
+   }
+
+   Admin.findById(id).then((admin) => {
+    if(!admin) {
+      return res.status(404).send();
+    }
+    res.send({admin});
+   }).catch((e) => {
+    res.status(404).send();
+   });
+   
 });
 
 app.get('/interns/:id', (req, res) => {
