@@ -21,7 +21,7 @@ app.use(bodyParser.json());//doRemove
 app.post('/interns', (req, res) => { 
   var intern = new Intern({
   	name: req.body.name,
-    designation : req.body.designation
+    designation : req.body.designation,
     bio : req.body.bio,
     hobby : req.body.hobby,
     imageUrl : req.body.imageUrl
