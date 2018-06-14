@@ -28,7 +28,7 @@ app.post('/interns', (req, res) => {
     aim : req.body.aim,
     facebookUrl : req.body.facebookUrl,
     githubUrl : req.body.githubUrl,
-    instagramUrl : req.body.instagramUrl,
+    instgramUrl : req.body.instgramUrl,
   });
 
   intern.save().then((doc) => {
@@ -107,6 +107,13 @@ app.get('/interns/:id', (req, res) => {
    
 });
 
+//app.get('/:id', (req, res) => {
+ //  var id = req.params.id;
+ //  res.render('pritam.hbs');
+  // //res.send(id).render('pritam.hbs');
+   
+//});
+
 
 //==============================================================
 
@@ -134,6 +141,25 @@ app.get('/graphics-team', (req, res) => {
 app.get('/login', (req, res) => {
    res.render('login.hbs');
 	});
+
+app.get('/pritam', (req, res) => {
+   res.render('pritam.hbs');
+  });
+
+app.get('/afshar', (req, res) => {
+   res.render('afshar.hbs');
+  });
+
+app.get('/harsha', (req, res) => {
+   res.render('harsha.hbs');
+  });
+app.get('/piu', (req, res) => {
+   res.render('piu.hbs');
+  });
+
+
+
+
 
 app.listen(port, () => {
 	console.log(`Server is up on ${port}`);
