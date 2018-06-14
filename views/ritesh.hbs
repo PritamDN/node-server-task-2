@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.body{
+
+			background-image: url("./DESIGNING BG.jpg");
+			}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  height:150px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border:2px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+.bg{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  height:600px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border:2px;
+border:4px solid black;}
+</style>
+
+<script>
+  
+
+  //var intern_id = window.location.hash.substring(1);
+
+  window.onload = function fetchData(intern_id){
+    if(intern_id.length != 0){
+            $.ajax({
+              url: '/interns/'+ '5b221d8cb6cace001486d1b2',
+              async: false,
+              success: function(response){
+                var name = response["intern"]["name"];
+                var designation = response["intern"]["designation"];
+                var bio = response["intern"]["bio"]
+                
+                document.getElementById('name').innerHTML = name;
+                document.getElementById('designation').innerHTML = designation;
+                document.getElementById('bio').innerHTML = bio;
+
+              }
+            });
+          }
+  }
+</script>
+
+
+</head>
+<body>
+<div class="bg">
+<div class="container">
+<h2 style="text-align:center"> Profile Card</h2>
+
+<div class="card">
+  <img src="./ritesh.jpg"  alt="John" style="width:150px;"></div>
+<br>
+ <h1 id="name">John Doe</h1><br>
+  <p id="designation" class="title">Some Designation</p>
+  <br>
+  
+  <p id="bio">Some Bio</p>
+  
+ <br>
+
+    
+    <a href="#"><i class="fa fa-instagram"></i></a>  
+    
+    <a href="#""><i class="fa fa-facebook"></i></a> 
+	<a href="#"><i class="social-icon__icon fa fa-google-plus"></i>
+												</a>
+ </div>
+
+</div>

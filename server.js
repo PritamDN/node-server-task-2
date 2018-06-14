@@ -169,6 +169,30 @@ app.get('/debjani', (req, res) => {
    res.render('debjani.hbs');
   });
 
+app.get('/pallab', (req, res) => {
+   res.render('pallab.hbs');
+  });
+
+app.get('/sanu', (req, res) => {
+   res.render('sanu.hbs');
+  });
+
+app.get('/ritesh', (req, res) => {
+   res.render('ritesh.hbs');
+  });
+
+app.get('/satarupa', (req, res) => {
+   res.render('satarupa.hbs');
+  });
+
+app.get('/pinky', (req, res) => {
+   res.render('pinky.hbs');
+  });
+
+app.get('/naina', (req, res) => {
+   res.render('naina.hbs');
+  });
+
 
 
 
