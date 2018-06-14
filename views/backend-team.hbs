@@ -25,6 +25,30 @@
 		}
 	</style>
 	</head>
+
+	<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+         crossorigin="anonymous">         	
+    </script>
+
+    <script type="text/javascript">
+  			function fetchData(intern_id){
+  				if(intern_id.length != 0){
+  					$.ajax({
+  						url: '/interns/'+intern_id,
+  						async: false,
+  						success: function(response){
+  							
+  							alert('Name : ' + response["intern"]["name"] + '\nBio : ' + response["intern"]["designation"]);
+  							//alert('Name : ' + response["intern"]["name"]);
+  							//document.write(response["intern"]["designation"]);
+  							//document.getElementById("ff").innerHTML = response["intern"]["name"];
+  						}
+  					});
+  				}
+  			}
+  	</script>
 	
 	<body background="./back.jpg" background-attachment: fixed;>
 		 <div class="page-wrap">
@@ -57,7 +81,7 @@
 								
 					    <!-- team-01__module -->
 								<div class="team-01__module team-01__style-02">
-									<div class="team-01__header"><img src="./../prit.jpg" alt="member1 img"/>
+									<div class="team-01__header"><img onclick="fetchData('5b20cdcc6f92001e44feb386')" src="./../prit.jpg" alt="member1 img"/>
 										<div class="team-01__hover">
 											<div class="team-01__inner">
 												<div class="team-01__text">A Wannabe Computer Science Engineer with a keen interest in Web Design and Developement.</div>
@@ -70,7 +94,7 @@
 												<a class="social-icon__module social-icon__no-border" href="https://github.com/PritamDN"><i class="social-icon__icon fa fa-github"></i>
 												</a><!-- End / social-icon__module -->
 												
-												
+												<button class="primary" onclick="fetchData('5b20cdcc6f92001e44feb386')">Details</button>
 												
 												
 											</div>
@@ -106,6 +130,8 @@
 												<!-- social-icon__module -->
 												<a class="social-icon__module social-icon__no-border" href="https://instagram.com/hjrinfinity"><i class="social-icon__icon fa fa-instagram"></i>
 												</a><!-- End / social-icon__module -->
+
+												<button class="primary" onclick="fetchData('5b1f86d53d1cfc24fc7adbaa')">Details</button>
 												
 											</div>
 										</div>

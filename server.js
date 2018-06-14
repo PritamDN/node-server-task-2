@@ -1,5 +1,11 @@
 const express = require('express');
 const hbs = require('hbs');
+const bodyParser = require('body-parser');//doRemove
+const {ObjectID} = require('mongodb');//doRemove
+
+const {mongoose} = require('./db/mongoose');//doRemove
+const {Admin} = require('./models/admin');//doRemove
+const {Intern} = require('./models/intern');//doRemove
 
 const port = process.env.PORT || 3000;
 var app = express();
@@ -8,6 +14,53 @@ app.set('View engine', 'hbs');
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/images'));
+
+app.use(bodyParser.json());//doRemove
+
+//POST Route and deRemove=====================================
+app.post('/interns', (req, res) => { 
+  var intern = new Intern({
+  	name: req.body.name,
+    designation : req.body.designation
+  });
+
+  intern.save().then((doc) => {
+    res.send(doc);
+  }, (e) => {
+  	res.status(400).send(e);
+  });
+  console.log(req.body);
+});
+
+//GET Route
+app.get('/interns', (req, res) => {
+  Intern.find().then((interns) => {
+    res.send({interns});  
+  }, (e) => {
+   res.status(400).send(e);
+});
+});
+
+app.get('/interns/:id', (req, res) => {
+   var id = req.params.id;
+
+   if (!ObjectID.isValid(id)) {
+    return res.status(404).send('<h1>This Page Does not Exist.</h1>');
+   }
+
+   Intern.findById(id).then((intern) => {
+    if(!intern) {
+      return res.status(404).send();
+    }
+    res.send({intern});
+   }).catch((e) => {
+    res.status(404).send();
+   });
+   
+});
+
+
+//==============================================================
 
 app.get('/', (req, res) => {
    res.render('home.hbs');
