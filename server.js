@@ -157,6 +157,18 @@ app.get('/piu', (req, res) => {
    res.render('piu.hbs');
   });
 
+app.get('/deepanjana', (req, res) => {
+   res.render('deepanjana.hbs');
+  });
+
+app.get('/tapasi', (req, res) => {
+   res.render('tapasi.hbs');
+  });
+
+app.get('/debjani', (req, res) => {
+   res.render('debjani.hbs');
+  });
+
 
 
 
