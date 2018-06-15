@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="icon" type="image/jpg" href="PALLAB logo.jpg">
 		<title>Backend Developers</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -25,40 +26,8 @@
 		}
 	</style>
 	</head>
-
-	<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-         crossorigin="anonymous">         	
-    </script>
-
-    <script type="text/javascript">
-  			function fetchData(intern_id){
-  				if(intern_id.length != 0){
-  					$.ajax({
-  						url: '/interns/'+intern_id,
-  						async: false,
-  						success: function(response){
-  							var name = response["intern"]["name"];
-  							var designation = response["intern"]["designation"];
-  							alert(name);
-  							//alert(designation);
-  							document.getElementById('pri').innerHTML = name;
-  							//alert('Name : ' + response["intern"]["name"] + '\nBio : ' + response["intern"]["designation"]);
-  							//alert('Name : ' + response["intern"]["name"]);
-  							//document.write(response["intern"]["designation"]);
-  							//document.getElementById("ff").innerHTML = response["intern"]["name"];
-  						}
-  					});
-  				}
-  			}
-  	</script>
 	
-	<body background="./back.jpg" background-attachment: fixed;>
-		<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+	<body background="backend background.svg" background-attachment: fixed;>
 		 <div class="page-wrap">
 			<!-- Content-->
 			<div class="md-content">
@@ -74,7 +43,7 @@
 								
 								<!-- sec-title__module -->
 								<div class="sec-title__module awe-text-center">
-									<h2>Our Team</h2>
+									<h2>our team</h2>
 									<p> Team of Backend Developers</p>
 								</div><!-- End / sec-title__module -->
 								
@@ -89,10 +58,12 @@
 								
 					    <!-- team-01__module -->
 								<div class="team-01__module team-01__style-02">
-									<div class="team-01__header"><a href="#"><img src="./../prit.jpg" alt="member1 img"/></a>
+									<div class="team-01__header"><img src="./prit.jpg" alt="member1 img"/>
 										<div class="team-01__hover">
 											<div class="team-01__inner">
-												<div class="team-01__text"><p>Hi, I am Pritam Debnath.</p><a href="/pritam"><button>More About Me</button></a></div>
+												<div class="team-01__text">Hi, I am Pritam Debnath.
+
+</div>
 												
 												<!-- social-icon__module -->
 												<a class="social-icon__module social-icon__no-border" href="https://www.facebook.com/profile.php?id=100011242205679"> <i class="social-icon__icon fa fa-facebook"></i>
@@ -102,8 +73,7 @@
 												<a class="social-icon__module social-icon__no-border" href="https://github.com/PritamDN"><i class="social-icon__icon fa fa-github"></i>
 												</a><!-- End / social-icon__module -->
 												
-
-
+												
 												
 												
 											</div>
@@ -111,7 +81,7 @@
 									</div>
 									<div class="team-01__body">
 										<div class="team-01__user">
-											<h4 id ="pri" class="team-01__name">Pritam Debnath</h4><span class="team-01__work"> Backend Developer </span>
+											<a href="/backend-profile#5b221828b11a96001408be6e"><h4 class="team-01__name">Pritam Debnath</h4></a><span class="team-01__work"> Backend Developer </span>
 										</div>
 									</div>
 								</div><!-- End / team-01__module -->
@@ -125,10 +95,10 @@
 									<div class="team-01__header"><img src="./harsh.jpg" alt="member1 img"/>
 										<div class="team-01__hover">
 											<div class="team-01__inner">
-												<div class="team-01__text"><p>Hi, I am Harhajyoti Roy.</p><a href="/harsha"><button>More About Me</button></a></div>
+												<div class="team-01__text">Hi, I am Harshajyoti Roy.</div>
 												
 												<!-- social-icon__module -->
-												<a class="social-icon__module social-icon__no-border" href="https://facebook.com/hjrinfinity"><i class="social-icon__icon fa fa-facebook"></i>
+												<a class="social-icon__module social-icon__no-border" href="facebook.com/hjrinfinity"><i class="social-icon__icon fa fa-facebook"></i>
 												</a><!-- End / social-icon__module -->
 																								
 												<!-- social-icon__module -->
@@ -137,18 +107,15 @@
 												
 												
 												<!-- social-icon__module -->
-												<a class="social-icon__module social-icon__no-border" href="https://instagram.com/hjrinfinity"><i class="social-icon__icon fa fa-instagram"></i>
+												<a class="social-icon__module social-icon__no-border" href="instagram.com/hjrinfinity"><i class="social-icon__icon fa fa-instagram"></i>
 												</a><!-- End / social-icon__module -->
-
-
 												
-												
-											</div>
+											</div> 
 										</div>
 									</div>
 									<div class="team-01__body">
 										<div class="team-01__user">
-											<h4 class="team-01__name"> Harshajyoti Roy</h4><span class="team-01__work"> Backend Developer</span>
+											<a href="/backend-profile#5b221c78b6cace001486d1b1"><h4 class="team-01__name"> Harshajyoti Roy</h4></a><span class="team-01__work"> Backend Developer</span>
 										</div>
 									</div>
 								</div><!-- End / team-01__module -->
@@ -165,6 +132,137 @@
 			</section>
 			<!-- End / Content-->
 		</div>
+
+
+      <style>
+			.navbar-default {
+
+				background-color:black;
+			}
+
+			</style>
+			<nav class="navbar navbar-default">
+			 
+			  <div class="container-fluid">
+			    <div class="navbar-header"><a class="brand" style="margin:0; float: none;" href="/"><img src="logo img.jpg"></a>
+			    </div>
+			<div>
+			    <ul class="nav navbar-nav navbar-fixed">
+			      <li><a href="/">Home</a></li>
+			      <li><a href="/about-us">About us</a></li>
+                    
+
+
+                      <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Our team</a>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="/graphics-team">Graphics Designers</a>
+                                  <a class="dropdown-item" href="/frontend-team">Frontend Developers</a>
+                                  <a class="dropdown-item" href="/backend-team">Backend Developers</a>
+                                  <div class="dropdown-divider"></div>
+                                </ul>
+
+					</div>
+							
+
+
+                               <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                                  </ul>
+				       	 	
+			    
+			    
+			</nav>
+				</div>
+
+				 <div class="container">
+                    <div>
+                      <center>
+
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <style>
+                    .fa { 
+                        display: inline-block;
+                        alignment-baseline: right;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 12px;
+                        color: #333;
+                        text-align: center;
+                        border: 1px solid #ebebeb;
+                        transition: all .3s ease;
+                    }
+
+                    .fa:hover {
+                        
+                        border-color: #ff594f;
+                        background-color: #ff594f;
+                        color: #fff;
+                    }
+
+                    .fa-facebook {
+                      background: #3B5998;
+                      color: white;
+                    }
+
+                    .fa-twitter {
+                      background: #55ACEE;
+                      color: white;
+                    }
+
+                    .fa-google-plus {
+                      background: #dd4b39;
+                      color: white;
+                    }
+
+                    .fa-linkedin {
+                      background: #007bb5;
+                      color: white;
+                    }
+
+                    .fa-youtube {
+                      background: #bb0000;
+                      color: white;
+                    }
+
+                    .fa-instagram {
+                      background: #125688;
+                      color: white;
+                    }
+
+                    .fa-pinterest {
+                      background: #cb2027;
+                      color: white;
+                    }
+
+
+                    </style>
+                    </head>
+
+                    <!-- Add font awesome icons -->
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google-plus"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-pinterest"></a>
+
+                          
+
+                    </center>
+                    <br>
+                    </div>
+                    <style>
+                    .jumbotron{
+                    background-image:url("admin.jpeg");
+                    background-size:cover;
+
+                    </style>
+                     <div class="jumbotron"
+                    <div class="container">
+
 
 	</body>
 </html>

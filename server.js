@@ -142,6 +142,10 @@ app.get('/login', (req, res) => {
    res.render('login.hbs');
 	});
 
+app.get('/dashboard', (req, res) => {
+   res.render('login.hbs');
+  });
+/*
 app.get('/pritam', (req, res) => {
    res.render('pritam.hbs');
   });
@@ -191,6 +195,26 @@ app.get('/pinky', (req, res) => {
 
 app.get('/naina', (req, res) => {
    res.render('naina.hbs');
+  });
+
+app.get('/button', (req, res) => {
+   res.render('button.hbs');
+  });
+
+app.get('/profile', (req, res) => {
+   res.render('profile.hbs');
+  });
+*/
+app.get('/frontend-profile', (req, res) => {
+   res.render('frontend-profile.hbs');
+  });
+
+app.get('/backend-profile', (req, res) => {
+   res.render('backend-profile.hbs');
+  });
+
+app.get('/graphics-profile', (req, res) => {
+   res.render('graphics-profile.hbs');
   });
 
 

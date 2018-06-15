@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <link rel="icon" type="image/jpg" href="PALLAB logo.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.body{
+
+			background-image: url("frontend bg.jpg");
+			}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  height:150px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border:2px;
+}
+
+.title {
+  color: white;
+  font-size: 18px;
+}
+
+
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: white;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+.bg{
+  box-shadow: 8px 8px 16px 16px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  height:600px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border:0px;
+border:0px solid black;
+ }
+</style>
+</head>
+<body background="frontend.svg" background-attachment: fixed;>
+<div class="bg">
+<div class="container">
+<h2 style="text-align:center;color:white"> Profile Card</h2>
+
+<div class="card">
+  <img id="imageUrl" src="image" alt="John" style="width:150px;"></div>
+<br>
+ <h1 id="name" style="color:white">Some Name</h1><br>
+  <p id="designation" class="title">Some Designation</p>
+  <br>
+  
+  <p id="bio" style="color:white">Some Bio</p>
+  
+ <br>
+
+    
+    <a id="instgramUrl" href="#"><i class="fa fa-instagram"></i></a>  
+    
+    <a id="facebookUrl" href="#""><i class="fa fa-facebook"></i></a> 
+	<a href="#"><i class="social-icon__icon fa fa-google-plus"></i>
+												</a>
+ </div>
+
+</div>
+
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+<script>
+  var id = window.location.hash.substring(1);
+  
+  window.onload = function fetchData(){
+    var url = '/interns/'+id;
+    console.log(url);
+
+    if(id.length != 0){
+            $.ajax({
+              url: url,
+              async: false,
+              success: function(response){
+                console.log(response);
+                var name = response["intern"]["name"];
+                var designation = response["intern"]["designation"];
+                var bio = response["intern"]["bio"];
+                var imageUrl = response["intern"]["imageUrl"];
+                var facebookUrl = response["intern"]["facebookUrl"];
+                var instgramUrl = response["intern"]["facebookUrl"];
+
+                
+                //alert(name);
+                //alert(designation);
+
+
+                document.getElementById('name').innerHTML = name;
+                document.getElementById('designation').innerHTML = designation;
+                document.getElementById('bio').innerHTML = bio;
+                document.getElementById('imageUrl').src = imageUrl;
+                document.getElementById('facebookUrl').href = facebookUrl;
+                document.getElementById('instgramUrl').href = facebookUrl;
+
+
+               
+              }
+            });
+          }
+  }
+</script>
+</html>
