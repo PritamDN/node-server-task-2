@@ -151,7 +151,7 @@ app.get('/login', (req, res) => {
   });
 
 app.post('/login', urlencodedParser, (req, res) => {
-   if (req.body.email === 'example69@gmail.com' && req.body.password === '12345678'){
+   if (req.body.email === 'example@gmail.com' && req.body.password === '12345'){
     res.render('dashboard.hbs');
    
    } else{
