@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+.bg{
+background-color:lightblue;
+margin-top:10px;
+margin-left:40px;
+border:4px solid black;
+padding-bottom:30px;
+padding-top:40px;
+padding-left:40px;
+padding-right:30px;
+
+}
+</style>
+<style>
+body{
+background-image: url("admin page background.svg");
+}
+
+</style>
+<div class="container-fluid ">
+  <div  class="row">
+      <div class="col-md-6">
+      <form class="bg" method="POST" action="/edit">
+        <input type="hidden" class="form-control" id="id" value=id name="id">
+        
+
+      <div class="form-group">      
+        <label for="name">Full Name:</label>
+        <input type="text" class="form-control" id="name" placeholder=name name="name">
+      </div>
+      <div class="form-group">
+        <label for="designation">Designation:</label>
+        <input type="text" class="form-control" id="designation" placeholder=designation name="designation">
+      </div>
+      
+      <div class="form-group">
+        <label for="facebookUrl">Facebook Url:</label>
+        <input type="text" class="form-control" id="facebookUrl" placeholder=facebookUrl name="facebookUrl">
+      </div>
+      
+      <div class="form-group">
+        <label for="instgramUrl">Instagram Url:</label>
+        <input type="text" class="instgramUrl" id="instgramUrl" placeholder=instagramUrl name="instagramUrl">
+      </div>
+      
+      <div class="form-group">
+        <label for="bio">Bio:</label>
+        <input type="text" class="form-control" id="bio" placeholder=bio name="bio">
+      </div>
+      
+      
+      <div class="form-group">
+        <label for="hobby">Hobby:</label>
+        <input type="text" class="form-control" id="hobby" placeholder=hobby name="hobby">
+      </div>
+      
+        <div class="form-group">
+        <label for="aim">Aim:</label>
+        <input type="text" class="form-control" id="aim" placeholder=aim name="aim">
+      </div>
+          
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      
+      </form>
+    </div>
+ 
+<script>
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<script>
+  var id = window.location.hash.substring(1);
+  
+  window.onload = function fetchData(){
+    var url = `/interns/${id}`;
+    console.log(url);
+
+    if(id.length != 0){
+            $.ajax({
+              url: url,
+              async: false,
+              success: function(response){
+                console.log(response);
+                var name = response["intern"]["name"];
+                var designation = response["intern"]["designation"];
+                var bio = response["intern"]["bio"];
+                var aim = response["intern"]["aim"];
+                var  hobby= response["intern"]["hobby"];
+                var imageUrl = response["intern"]["imageUrl"];
+                var facebookUrl = response["intern"]["facebookUrl"];
+                var instgramUrl = response["intern"]["instgramUrl"];
+
+                
+                //alert(name);
+                //alert(designation);
+
+
+                document.getElementById('name').value = name;
+                document.getElementById('id').value = id;
+                document.getElementById('designation').value = designation;
+                document.getElementById('bio').value = bio;
+                document.getElementById('aim').value =aim;
+                document.getElementById('hobby').value = hobby;
+                document.getElementById('imageUrl').value = imageUrl;
+                document.getElementById('facebookUrl').value = facebookUrl;
+                document.getElementById('instgramUrl').value = instgramUrl;
+
+
+               
+              }
+            });
+          }
+  }
+</script>
+
+
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<link rel="icon" type="image/jpg" href="PALLAB logo.jpg">
 	<title> account </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -24,39 +26,49 @@
 }
 		}
 	</style>
-
-
-	<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-         crossorigin="anonymous">         	
-    </script>
-
-    <script type="text/javascript">
-  			function loginF(admin_id){
-  				if(admin_id.length != 0){
-  					$.ajax({
-  						url: '/admins/'+admin_id,
-  						async: false,
-  						success: function(response){
-  							
-  							alert('Name : ' + response["admin"]["email"] + '\nBio : ' + response["admin"]["password"]);
-  							//alert('Name : ' + response["intern"]["name"]);
-  							//document.write(response["intern"]["designation"]);
-  							//document.getElementById("ff").innerHTML = response["intern"]["name"];
-  						}
-  					});
-  				}
-  			}
-  	</script>
 </head>
-<body background="admin.jpeg">
+<body background="admin page backround.svg">
 
+
+	<script type="text/javascript">
+
+
+            function validate(){
+
+            	//var url = '/admins/' + '5b2200bd49f8b8123e22ca4d';
+            	//console.log(url);
+
+            	if(id.length != 0){
+            $.ajax({
+              url: '/admins/' + '5b2200bd49f8b8123e22ca4d',
+              async: false,
+              success: function(response){
+                console.log(response);
+                var fetchedEmail = response["admin"]["email"];
+                var fetchedPassword = response["admin"]["password"];
+                
+            
+                alert(fetchedEmail);
+                alert(fetchedPassword);
+
+                if(document.getElementById("email").value===fetchedEmail && document.getElementById("password").value===fetchedPassword){
+										
+										alert("validation succeded");
+										location.href="/dashboard";
+
+									} else {
+										alert("validation failed");
+									    }
+
+
+
+								}}}
+								</script>
+	
 	<!-- Standard Bootstrap Code -->
 	
 
 	<div class="container">
-		
 		<br><br>
 
 
@@ -86,23 +98,26 @@
 									font-family: 'Jua', sans-serif;
 								}
 									</style>
-								<form class="form" style="text-align: left;">
+								<form class="form" style="text-align: left;" method="POST" action="/login">
 										<h3 align="center"> <hr>Admin Login<hr></h3>
 									
 								</div>
 
 								
 								<label for="#email"></label>
-								<input type="email" name="email" id="email" class="form-control" placeholder="Email">
+								<input type="email" name="email" id="email" class="form-control" placeholder="Email"/>
 								
 								<label for="#password"></label>
-								<input type="password" name="pass1" id="password" class="form-control" placeholder="Enter Password">
+								<input type="password" name="password" id="password" class="form-control" placeholder="Enter Password"/>
 								<br><br>
+
+								<input type="submit" class="btn btn-success" value="submit"	/>
+
 								
-								
-								<input type="submit" class="btn btn-success" value="Login">
-								<a href="#">
+
+							
 							</form>
+							
 						</div>
 					</div>
 				</div>
@@ -125,5 +140,143 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
+
+
+<style>
+			.navbar-default {
+
+				background-color:transparent;
+			}
+
+			</style>
+			<nav class="navbar navbar-default">
+			 
+			  <div class="container-fluid">
+			    <div class="navbar-header"><a class="brand" style="margin:0; float: none;" href="/"><img src="logo img.jpg"></a>
+			    </div>
+			<div>
+			    <ul class="nav navbar-nav navbar-fixed">
+			      <li><a  style="color:white" href="/">Home</a></li>
+			      <li><a style="color:white" href="/about-us">About us</a></li>
+                    
+
+
+                      <li class="nav-item dropdown">
+                                <a style="color:white" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Our team</a>
+                                <div class="dropdown-menu">
+                                  <a class="dropdown-item" href="/graphics-team">Graphics Designers</a>
+                                  <a class="dropdown-item" href="/frontend-team">Frontend Developers</a>
+                                  <a class="dropdown-item" href="/backend-team">Backend Developers</a>
+                                  <div class="dropdown-divider"></div>
+                                </ul>
+
+					</div>
+							
+
+
+                               <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                                  </ul>
+				       	 	
+			    
+			    
+			</nav>
+				</div>
+
+				 <div class="container">
+                    <div>
+                      <center>
+
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <style>
+                    .fa { 
+                        display: inline-block;
+                        alignment-baseline: right;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 12px;
+                        color: #333;
+                        text-align: center;
+                        border: 1px solid #ebebeb;
+                        transition: all .3s ease;
+                    }
+
+                    .fa:hover {
+                        
+                        border-color: #ff594f;
+                        background-color: #ff594f;
+                        color: #fff;
+                    }
+
+                    .fa-facebook {
+                      background: #3B5998;
+                      color: white;
+                    }
+
+                    .fa-twitter {
+                      background: #55ACEE;
+                      color: white;
+                    }
+
+                    .fa-google-plus {
+                      background: #dd4b39;
+                      color: white;
+                    }
+
+                    .fa-linkedin {
+                      background: #007bb5;
+                      color: white;
+                    }
+
+                    .fa-youtube {
+                      background: #bb0000;
+                      color: white;
+                    }
+
+                    .fa-instagram {
+                      background: #125688;
+                      color: white;
+                    }
+
+                    .fa-pinterest {
+                      background: #cb2027;
+                      color: white;
+                    }
+
+
+                    </style>
+                    </head>
+
+                    <!-- Add font awesome icons -->
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google-plus"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-pinterest"></a>
+
+                          
+
+                    </center>
+                    <br>
+                    </div>
+                    <style>
+                    .jumbotron{
+                    background-image:url("admin.jpeg");
+                    background-size:cover;
+
+                    </style>
+                     <div class="jumbotron"
+                    <div class="container">
+
 </body>
-</html>
+
+<script>
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+</html>	

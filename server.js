@@ -1,15 +1,23 @@
+const _ = require('lodash');
 const express = require('express');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');//doRemove
 const {ObjectID} = require('mongodb');//doRemove
 
+
+
 const {mongoose} = require('./db/mongoose');//doRemove
 const {Admin} = require('./models/admin');//doRemove
 const {Intern} = require('./models/intern');//doRemove
+const url = require('url')
+
 
 const port = process.env.PORT || 3000;
 var app = express();
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+ 
 app.set('View engine', 'hbs');
 
 app.use(express.static(__dirname + '/public'));
@@ -20,7 +28,7 @@ app.use(bodyParser.json());//doRemove
 //POST Route and deRemove=====================================
 app.post('/interns', (req, res) => { 
   var intern = new Intern({
-  	name: req.body.name,
+    name: req.body.name,
     designation : req.body.designation,
     bio : req.body.bio,
     hobby : req.body.hobby,
@@ -34,7 +42,7 @@ app.post('/interns', (req, res) => {
   intern.save().then((doc) => {
     res.send(doc);
   }, (e) => {
-  	res.status(400).send(e);
+    res.status(400).send(e);
   });
   console.log(req.body);
 });
@@ -119,92 +127,40 @@ app.get('/interns/:id', (req, res) => {
 
 app.get('/', (req, res) => {
    res.render('home.hbs');
-	});
+  });
 
 app.get('/about-us', (req, res) => {
    res.render('about.hbs');
-	});
+  });
 
 
 app.get('/frontend-team', (req, res) => {
    res.render('frontend-team.hbs');
-	});
+  });
 
 app.get('/backend-team', (req, res) => {
    res.render('backend-team.hbs');
-	});
+  });
 
 app.get('/graphics-team', (req, res) => {
    res.render('graphics-team.hbs');
-	});
+  });
 
 app.get('/login', (req, res) => {
    res.render('login.hbs');
-	});
-
-app.get('/dashboard', (req, res) => {
-   res.render('login.hbs');
-  });
-/*
-app.get('/pritam', (req, res) => {
-   res.render('pritam.hbs');
   });
 
-app.get('/afshar', (req, res) => {
-   res.render('afshar.hbs');
+app.post('/login', urlencodedParser, (req, res) => {
+   if (req.body.email === 'example69@gmail.com' && req.body.password === '12345678'){
+    res.render('dashboard.hbs');
+   
+   } else{
+    res.send('Invalid');
+   }
+
   });
 
-app.get('/harsha', (req, res) => {
-   res.render('harsha.hbs');
-  });
-app.get('/piu', (req, res) => {
-   res.render('piu.hbs');
-  });
 
-app.get('/deepanjana', (req, res) => {
-   res.render('deepanjana.hbs');
-  });
-
-app.get('/tapasi', (req, res) => {
-   res.render('tapasi.hbs');
-  });
-
-app.get('/debjani', (req, res) => {
-   res.render('debjani.hbs');
-  });
-
-app.get('/pallab', (req, res) => {
-   res.render('pallab.hbs');
-  });
-
-app.get('/sanu', (req, res) => {
-   res.render('sanu.hbs');
-  });
-
-app.get('/ritesh', (req, res) => {
-   res.render('ritesh.hbs');
-  });
-
-app.get('/satarupa', (req, res) => {
-   res.render('satarupa.hbs');
-  });
-
-app.get('/pinky', (req, res) => {
-   res.render('pinky.hbs');
-  });
-
-app.get('/naina', (req, res) => {
-   res.render('naina.hbs');
-  });
-
-app.get('/button', (req, res) => {
-   res.render('button.hbs');
-  });
-
-app.get('/profile', (req, res) => {
-   res.render('profile.hbs');
-  });
-*/
 app.get('/frontend-profile', (req, res) => {
    res.render('frontend-profile.hbs');
   });
@@ -217,10 +173,31 @@ app.get('/graphics-profile', (req, res) => {
    res.render('graphics-profile.hbs');
   });
 
+app.post('/dashboard', (req, res) => {
+   res.render('dashboard.hbs');
+  });
+
+app.get('/edit', (req, res) => {
+   res.render('edit.hbs');
+  });
 
 
+app.post('/edit', urlencodedParser, (req, res) => {
+  var id=req.body.id;
+  var body = _.pick(req.body, ['name', 'designation','bio','hobby','aim','facebookUrl','instgramUrl','githubUrl']);
 
+  Intern.findByIdAndUpdate(id, {$set:body}, {new: true}).then((intern) => {
+    if (!intern) {
+      return res.status(404).send();
+    }
+
+    res.send({intern});
+  }).catch((e) => {
+    res.status(400).send();
+  })
+
+  });
 
 app.listen(port, () => {
-	console.log(`Server is up on ${port}`);
+  console.log(`Server is up on ${port}`);
 });
